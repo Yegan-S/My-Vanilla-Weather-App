@@ -10,26 +10,29 @@
 </head>
 <body>
  <div class="container">
+    <div class="weather-app-wrapper">
+      
     <div class="weather-app">
     <div class="row">
         <div class="col-6">
     <h1> New York</h1>
     </div>
     <div class="col-6">
+        <div class="weather-temperature">
         <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="">
-     19°c
-    </div>
+    <strong id="temeprature">19</strong><span class="unit">°c</span>
+</div>
+</div>
 
     <div class="row">
 
         <div class="col-6">
-    <ul>
-        <li>Humidity</li>
-        <li>Wind</li>
+        <ul>
+        <li>humidity</li>
+        <li>wind</li>
         </ul>
         </div>
-        
-       
+
             <div class="col-6">
         <ul>
         <li>Friday 05:00</li>
@@ -37,11 +40,16 @@
     </ul>
 </div>
 </div>
+
     </div>
-    </div>
-    <small>
+</div>
+
+    <small class="link-git">
         <a href="https://github.com/sedi-yegan/My-Vanilla-Weather-App/blob/main/index.html" target="_blank">Open-source code</a> by Yegan Salehi
         </small>
+</div>
+
     <script src="src/app.js"></script>
+
 </body>
 </html>
