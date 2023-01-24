@@ -40,7 +40,7 @@ margin: 30px auto;
     padding: 20px;
     border: 1px solid #dadde1;
     border-radius: 5px;
-    background-color: #87CEEB;
+    background-color:#668b8b;
 }
 
 
@@ -69,14 +69,17 @@ margin: 30px auto;
 
 #forecast-card-body{
     text-align: center;
-    color: orange ;
+    color: #f99f38 ;
     font-size: 16px;
     font-weight:400px;
 }
 
+
 .card{
    margin: 5px;
-   padding: 0;
+   padding: 0px;
+   background-color: rgb(236 242 249 / 80%);
+border: none;
 }
 
 #date-forecast{
