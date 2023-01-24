@@ -75,17 +75,18 @@ margin: 30px auto;
 }
 
 
+
 .card{
    margin: 5px;
    padding: 0px;
-   background-color: rgb(236 242 249 / 80%);
 border: none;
+background-color: rgb(236 242 249);
 }
 
 #date-forecast{
     position: relative;
     top: 10px;
-    font-size: 20px;
+    font-size: 18px;
     color: #70757a;
 }
   
