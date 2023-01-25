@@ -8,7 +8,7 @@ let minutes= date.getMinutes();
 if (minutes< 10){
     minutes = `0${minutes}`;
 }
-let days = ["Sunday", "Monday", "Tuesday", "Wednesday" , "Thursday", "Friday", "Saturday"];
+let days = ["Sun", "Mon", "Tue", "Wed" , "Thu", "Fri", "Sat"];
 let day= days[date.getDay()];
 return `${day} ${hours}:${minutes}`;
 }
@@ -25,23 +25,22 @@ return days[day];
 function displayForecast(response){
    let forecast = response.data.daily;
     let forecastElement = document.querySelector("#forecast");
-    
-    let forecastHTML= "";
+     console.log(response.data.daily);
+    let forecastHTML=  `<div class="card-body forecast-card-body" id="forecast-card-body">Upcoming days</div>`;
     
 forecast.forEach(function(forecastDay, index){
 
     if (index<4){ 
 forecastHTML= forecastHTML + `
-    <div class="card">
-    <div class="card-body">
+      
         <div class="row">
-            <div class="col-4 " id="date-forecast">${formatDay(forecastDay.dt)}</div>
-            <div class="col-5"> <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" id="icon"></div>
-            <div class="col-3 forecast-temperature"><span id="max-temperature">${Math.round(forecastDay.temp.max)}°</span> <span id="min-temperature">${Math.round(forecastDay.temp.min)}°</span></div>
+            <div class="col-4 " id="date-forecast">${formatDay(forecastDay.time)}</div>
+            <div class="col-5"> <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[0].condition.icon}.png" alt="" id="icon-forecast"></div>
+            <div class="col-3 forecast-temperature"><span id="max-temperature">${Math.round(forecastDay.temperature.maximum)}°</span> <span id="min-temperature">${Math.round(forecastDay.temperature.minimum)}°</span></div>
     
         </div>
-    </div>
-</div>
+   
+
     `;
     }
     })
@@ -51,17 +50,16 @@ forecastHTML= forecastHTML + `
 }
 
 function getForecast(coordinates){
-//console.log(coordinates);
-let apiKey = "cad4a7b2655c670bbf4e9139ebd662ce";
-let apiUrl = `http://api.openweathermap.org/data/2.5/forecast/daily?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-//console.log(apiUrl);
+   
+let apiKey = "tb5f08b166ada0ab28a3f4o4dec6c3e0";
+let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
 axios.get(apiUrl).then(displayForecast);
 }
 
 
 
 function  displayTemperature(response){
-//console.log(response.data);
+
     let temperatureElement = document.querySelector("#temperature");
      let cityElement = document.querySelector("#city");
     let descriptionElement = document.querySelector("#description");
@@ -72,23 +70,23 @@ function  displayTemperature(response){
 
     
 
-temperatureElement.innerHTML =Math.round(response.data.main.temp);
-cityElement.innerHTML = response.data.name;
-descriptionElement.innerHTML = response.data.weather[0].description;
-humidityElement.innerHTML = response.data.main.humidity;
+temperatureElement.innerHTML =Math.round(response.data.temperature.current);
+cityElement.innerHTML = response.data.city;
+descriptionElement.innerHTML = response.data.condition.description;
+humidityElement.innerHTML = response.data.temperature.humidity;
 windElement.innerHTML = Math.round(response.data.wind.speed);
-dateElement.innerHTML = formatDate(response.data.dt * 1000);
-iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-iconElement.setAttribute("alt", response.data.weather[0].description);
+dateElement.innerHTML = formatDate(response.data.time * 1000);
+iconElement.setAttribute("src",`http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
+iconElement.setAttribute("alt", response.data.condition.icon);
 
-getForecast(response.data.coord);
+getForecast(response.data.coordinates);
 
 }
 
 function search(city){
-let apiKey = "cad4a7b2655c670bbf4e9139ebd662ce";
+let apiKey = "tb5f08b166ada0ab28a3f4o4dec6c3e0";
 
- let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+ let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
  
  axios.get(apiUrl).then(displayTemperature);
 }

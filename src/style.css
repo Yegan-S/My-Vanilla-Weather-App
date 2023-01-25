@@ -40,7 +40,7 @@ margin: 30px auto;
     padding: 20px;
     border: 1px solid #dadde1;
     border-radius: 5px;
-    background-color:#668b8b;
+    background-color: rgb(179 197 197);
 }
 
 
@@ -75,26 +75,25 @@ margin: 30px auto;
 }
 
 
-
 .card{
-   margin: 5px;
-   padding: 0px;
+ 
 border: none;
 background-color: rgb(236 242 249);
 }
 
 #date-forecast{
-    position: relative;
-    top: 10px;
+   
     font-size: 18px;
-    color: #70757a;
+    color: rgb(38 51 51);
 }
   
-.forecast-temperature{
-    position: relative;
-        top: 12px;
+#icon-forecast{
+    margin-right: 5px;
+        position: relative;
+        top: -12px;
+        height: 64px;
+        width: 64px;
 }
-
 #max-temperature{
     font-weight: bold;
 }
