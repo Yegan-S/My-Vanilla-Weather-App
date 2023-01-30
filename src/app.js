@@ -25,7 +25,6 @@ return days[day];
 function displayForecast(response){
    let forecast = response.data.daily;
     let forecastElement = document.querySelector("#forecast");
-     console.log(response.data.daily);
     let forecastHTML=  `<div class="card-body forecast-card-body" id="forecast-card-body">Upcoming days</div>`;
     
 forecast.forEach(function(forecastDay, index){
@@ -55,8 +54,6 @@ let apiKey = "tb5f08b166ada0ab28a3f4o4dec6c3e0";
 let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
 axios.get(apiUrl).then(displayForecast);
 }
-
-
 
 function  displayTemperature(response){
 
