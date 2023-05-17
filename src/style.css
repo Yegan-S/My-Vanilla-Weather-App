@@ -105,3 +105,66 @@ background-color: rgb(236 242 249);
 #link-source {
     text-decoration: none;
 }
+@media (max-width:420px){
+   
+}
+
+@media (max-width:395px){
+.humidity {
+      
+            font-size: 90%;
+        }
+        .wind {
+         margin-top: 10px;
+         font-size: 90%;
+        }
+#my-button{
+    font-size: 12px;
+    padding: 7px;
+    width: 100%;
+    font-weight: bold;
+}
+ #date {
+    font-size: 95%;
+    font-weight: bold;
+ }
+   #description {
+       margin-top: 10px;
+       font-size: 80%;
+       font-weight: bold;
+      
+   }
+
+}
+
+@media (max-width:320px){
+    .humidity {
+            opacity: 0.7;
+            font-size: 75%;
+        }
+
+        .wind {
+            margin-top: 10px;
+            font-size: 75%;
+            opacity: 0.7;
+        }
+#my-button {
+        font-size: 6px;
+        padding: 12px 2px;
+        width: 100%;
+        font-weight: bold;
+    }
+         #date {
+             font-size: 85%;
+             font-weight: bold;
+         }
+         #description{
+            margin-top: 10px;
+            font-size: 70%;
+            opacity: 0.7;
+         }
+         #city{
+            font-size: 90%;
+            font-weight: bold;
+         }
+}
