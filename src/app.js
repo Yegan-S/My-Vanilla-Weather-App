@@ -33,9 +33,13 @@ forecast.forEach(function(forecastDay, index){
 forecastHTML= forecastHTML + `
       
         <div class="row">
-            <div class="col-4 " id="date-forecast">${formatDay(forecastDay.time)}</div>
-            <div class="col-5"> <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[0].condition.icon}.png" alt="" id="icon-forecast"></div>
-            <div class="col-3 forecast-temperature"><span id="max-temperature">${Math.round(forecastDay.temperature.maximum)}°</span> <span id="min-temperature">${Math.round(forecastDay.temperature.minimum)}°</span></div>
+            <div class="col-4 " id="date-forecast">
+            ${formatDay(forecastDay.time)}</div>
+            <div class="col-5"> 
+            <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily[0].condition.icon}.png" alt="" id="icon-forecast"></div>
+            <div class="col-3 forecast-temperature">
+            <span id="max-temperature">${Math.round(forecastDay.temperature.maximum)}°</span> 
+            <span id="min-temperature">${Math.round(forecastDay.temperature.minimum)}°</span></div>
     
         </div>
    
